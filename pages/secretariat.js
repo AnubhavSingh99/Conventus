@@ -25,19 +25,19 @@ export default function SecretariatPage() {
   const leftMembers = [
     { name: "Manas Gupta", branch: "Founder - President" },
     { name: "Pragya Singh", branch: "Secretary General" },
-    { name: "Yashraj Ranjan", branch: "Director General" },
-    { name: "Ameya Atreya", branch: "USG Delegate Affairs" },
     { name: "Sanskar Bhardwaj", branch: "UDG Web Operations" },
     { name: "Utkarsh Aggarwal", branch: "USG Media" },
+    { name: "Ankit Mehra", branch: "UDG Hospitality" },
+    { name: "Anshuman Parashar", branch: "UDG Finance" },
   ]
   
   const rightMembers = [
+    { name: "Yashraj Ranjan", branch: "Director General" },
+    { name: "Ameya Atreya", branch: "USG Delegate Affairs" },
     { name: "Disha Dubey", branch: "USG Social Media" },
     { name: "Ujjawal Sinha", branch: "UDG Design" },
     { name: "Shivanshu Pandey", branch: "USG Marketing & PR" },
     { name: "Apruv Krishna", branch: "UDG Logistics & Operations" },
-    { name: "Anshuman Parashar", branch: "UDG Finance" },
-    { name: "Ankit Mehra", branch: "UDG Hospitality" },
   ]
   
   return (
