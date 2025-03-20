@@ -1,8 +1,8 @@
 import React, { useState, useRef, useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { User, Phone, Mail, Building, X, Link, Upload, FileUp, Search, Download, Eye } from 'lucide-react';
-
-
+import Oheader from '@/components/OHeader';
+import Footer from '@/components/Footer';
 const Modal = ({ isOpen, onClose, message, isError }) => {
     return (
         <AnimatePresence>
@@ -36,7 +36,24 @@ const Modal = ({ isOpen, onClose, message, isError }) => {
         </AnimatePresence>
     );
 };
-
+const ContactPerson = ({ name, title, phone, email }) => (
+    <motion.div
+        className="bg-gray-50 rounded-lg p-4 text-center shadow-sm hover:shadow-md transition-shadow duration-300"
+        whileHover={{ scale: 1.05 }}
+        transition={{ duration: 0.3 }}
+    >
+        <h4 className="font-semibold text-lg text-gray-800 mb-2">{name}</h4>
+        <p className="text-sm text-red-600 font-medium mb-3">{title}</p>
+        <div className="flex items-center justify-center mb-2">
+            <Phone className="w-4 h-4 text-red-600 mr-2" />
+            <p className="text-sm text-gray-700">{phone}</p>
+        </div>
+        <div className="flex items-center justify-center">
+            <Mail className="w-4 h-4 text-red-600 mr-2" />
+            <p className="text-sm text-gray-700">{email}</p>
+        </div>
+    </motion.div>
+);
 const DelegateRegistrationForm = () => {
     const [formData, setFormData] = useState({
         name: '',
@@ -311,6 +328,7 @@ const DelegateRegistrationForm = () => {
 
 
     return (
+
         <div className="flex justify-center items-center min-h-screen bg-gray-100 p-4">
             <div className="bg-white rounded-lg shadow-2xl p-8 mb-16 text-center max-w-4xl w-full">
                 <h2 className="text-4xl font-bold text-center mb-8 text-red-600">
@@ -327,11 +345,13 @@ const DelegateRegistrationForm = () => {
                     <p className="text-gray-700 mb-4 text-justify">Addressing Security Crises and Regional Instability in Middle East while promoting reconstruction Governance and peace negotiations among key stakeholders.</p>
                     <div className="mb-4 flex items-center justify-center space-x-4">
                         <button
-                            onClick={() => handleMatrixDownload('/Matrix/United Nations Security Council.xlsx')}
+                            // onClick={() => handleMatrixDownload('/Matrix/United Nations Security Council.xlsx')}
+                            onClick={() => window.open('https://docs.google.com/spreadsheets/d/143eDDNCPQHaGE-jOL5oBKuZIGTFNt2uB/edit?usp=drivesdk&ouid=105922611711816574457&rtpof=true&sd=true', '_blank')}
+
                             className="flex items-center text-red-600 hover:text-red-700"
                         >
-                            <Download className="mr-2" size={20} />
-                            Download Matrix
+                            <Eye className="mr-2" size={20} />
+                            View Matrix
                         </button>
 
                     </div>
@@ -339,26 +359,30 @@ const DelegateRegistrationForm = () => {
                     <p className="text-gray-700 mb-4 text-justify">Rights of Refugees and Asylum Seekers Amidst Global Migration Crises: Balancing sovereignty with humanitarian responsibilities.</p>
                     <div className="mb-4 flex items-center justify-center space-x-4">
                         <button
-                            onClick={() => handleMatrixDownload('/Matrix/UN Human Rights Council.xlsx')}
+                            onClick={() => window.open('https://docs.google.com/spreadsheets/d/14RhNt0rqxsM_SU8Bcmkpw47sc2R1uKtg/edit?usp=drivesdk&ouid=105922611711816574457&rtpof=true&sd=true', '_blank')}
+
                             className="flex items-center text-red-600 hover:text-red-700"
                         >
-                            <Download className="mr-2" size={20} />
-                            Download Matrix
+                            <Eye className="mr-2" size={20} />
+                            View Matrix
                         </button>
                     </div>
                     <h5 className="text-xl font-semibold mb-2">All India Political Party Meet</h5>
                     <p className="text-gray-700 mb-4 text-justify">One Nation, One Election: Evaluating the feasibility, impact on governance, and democratic implications of simultaneous elections while balancing federalism.</p>
                     <div className="mb-4 flex items-center justify-center space-x-4">
                         <button
-                            onClick={() => handleMatrixDownload('/Matrix/All India Political Party Meet.xlsx')}
+                            // onClick={() => handleMatrixDownload('/Matrix/All India Political Party Meet.xlsx')}
+                            onClick={() => window.open('https://docs.google.com/spreadsheets/d/1v24pWSGc2l_dpdxBVMlfY6X5oo2Bx9T6/edit?usp=drivesdk&ouid=105922611711816574457&rtpof=true&sd=true', '_blank')}
                             className="flex items-center text-red-600 hover:text-red-700"
                         >
-                            <Download className="mr-2" size={20} />
-                            Download Matrix
+                            <Eye className="mr-2" size={20} />
+                            View Matrix
                         </button>
                     </div>
                     <h5 className="text-xl font-semibold mb-2">IP</h5>
                     <p className="text-gray-700 mb-4 text-justify">It will consist of Journalists, Photographers and Videographers</p>
+
+
                     {/* <div className="mb-4">
                         <label className="block text-gray-800 text-sm font-bold mb-2">
                             <Link className="inline-block mr-2 text-red-600" size={18} />
@@ -929,6 +953,36 @@ const DelegateRegistrationForm = () => {
                             {loading ? 'Submitting...' : 'Submit'}
                         </motion.button>
                     </div>
+
+
+                    <div className="bg-amber-50 border border-amber-300 mt-8 rounded-lg p-4 mb-6">
+                        <div>
+                            <div className="text-amber-600 mr-3" size={24} />
+                            <div>
+                                <h4 className="font-semibold text-amber-800 mb-1 text-xl">Contact Details</h4>
+                                <ul className="list-disc list-inside text-sm text-gray-700 space-y-1">
+                                    <ContactPerson
+                                        name="Yashraj Ranjan"
+                                        title="Vice - President"
+                                        phone="+91 7309328195"
+                                        email="3rd Year"
+                                    />
+                                    <ContactPerson
+                                        name="Pragya Singh"
+                                        title="Vice - President"
+                                        phone="+91 9953552547"
+                                        email="3rd Year"
+                                    />
+                                    <ContactPerson
+                                        name="Ameya Atreya"
+                                        title="USG Delegate Affairs"
+                                        phone="+91 84488 35989"
+                                        email="2nd Year"
+                                    />
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
                 </motion.form>
 
                 <Modal
@@ -939,8 +993,8 @@ const DelegateRegistrationForm = () => {
                 />
             </div>
         </div >
+
     );
 };
 
 export default DelegateRegistrationForm;
-
